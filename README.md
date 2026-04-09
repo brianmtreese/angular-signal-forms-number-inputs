@@ -31,5 +31,5 @@ With Angular 22, the `FieldState` now includes a `getError(kind: string)` method
 
 ## Related
 
-- Watch the tutorial on YouTube: Soon...
+- [Watch the tutorial on YouTube](https://youtu.be/gfYXk9p_PG4)
 - [Signal Forms full course](https://www.udemy.com/course/angular-signal-forms/?couponCode=021409EC66FC6440B867)
