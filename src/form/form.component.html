@@ -1,91 +1,69 @@
 <div class="form-container">
-  <h2>Create Account</h2>
-
-  
-  <!-- <form [formGroup]="signUpForm">
-    <div class="field">
-      <label for="username">Username</label>
-      <input id="username" type="text" formControlName="username" />
-      @if (signUpForm.controls.username.invalid && signUpForm.controls.username.touched) {
-        <ul class="error-message">
-          @if (signUpForm.controls.username.hasError('required')) {
-            <li>A username is required</li>
-          }
-        </ul>
-      }
-    </div>
-    <div class="field">
-      <label for="password">Password</label>
-      <input id="password" type="password" formControlName="password" />
-      <ol [class.dirty]="signUpForm.controls.password.dirty">
-        
-        <li [class.valid]="!signUpForm.controls.password.hasError('missingUppercase')">
-          One uppercase letter
-        </li>
-        <li [class.valid]="!signUpForm.controls.password.hasError('missingNumber')">
-          One number
-        </li>
-        <li [class.valid]="!signUpForm.controls.password.hasError('missingSpecialChar')">
-          One special character
-        </li>
-        <li [class.valid]="!signUpForm.controls.password.hasError('minlength') && signUpForm.controls.password.value">
-          At least 8 characters
-        </li>
-      </ol>
-    </div>
-    <button type="submit" [disabled]="signUpForm.invalid">
-      Create Account
-    </button>
-  </form> -->
-
-
+  <h2>Sign Up</h2>
   <form>
-    <div class="field">
-      <label for="username">Username</label>
-      <input
-        id="username"
-        type="text"
-        [formField]="form.username"
-      />
-      @if (form.username().invalid() && form.username().touched()) {
-        <ul class="error-message">
-          @for (error of form.username().errors(); track error.kind) {
-            <li>{{ error.message }}</li>
-          }
-        </ul>
-      }
-    </div>
-    <div class="field">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        [formField]="form.password"
-      />
-      <ol [class.dirty]="form.password().dirty()">
-        <!-- <li [class.valid]="!form.password().errors()[2]"> -->
-        <!-- <li [class.valid]="!form.password().errors().find(e => e.kind === 'missingUppercase')"> -->
-        <li [class.valid]="!form.password().getError('missingUppercase')">
-          One uppercase letter
-        </li>
-        <li [class.valid]="!form.password().getError('missingNumber')">
-          One number
-        </li>
-        <li [class.valid]="!form.password().getError('missingSpecialChar')">
-          One special character
-        </li>
-        <li [class.valid]="!form.password().getError('minLength') && form.password().value()">
-          At least 8 characters
-        </li>
-      </ol>
-    </div>
-    <button type="submit" [disabled]="form().invalid()">
-      Create Account
-    </button>
-  </form>
-</div>
+    
+    <label>
+      Username
+      <input type="text" [formField]="signupForm.username" />
+    </label>
+    @if (signupForm.username().touched() && signupForm.username().invalid()) {
+      <ul>
+        @for (error of signupForm.username().errors(); track error.kind) {
+          <li>{{ error.message }}</li>
+        }
+      </ul>
+    }
+  
+    <label>
+      Email
+      <input type="email" [formField]="signupForm.email" />
+    </label>
+    @if (signupForm.email().touched() && signupForm.email().invalid()) {
+      <ul>
+        @for (error of signupForm.email().errors(); track error.kind) {
+          <li>{{ error.message }}</li>
+        }
+      </ul>
+    }
 
-<div class="form-container">
-  <strong>Password Field Errors</strong>
-  <pre>{{ form.password().errors() | json }}</pre>
+    <label>
+      Age
+
+      <!-- 1. -->
+      <!-- <input
+        type="number"
+        [formField]="signupForm.age"
+      /> -->
+
+      <!-- 2. -->
+      <!-- <input
+        type="text"
+        inputmode="numeric"
+        [formField]="signupForm.age"
+        pattern="[0-9]*"
+        min="18"
+        max="120"
+      /> -->
+
+      <!-- 3. -->
+      <input
+        type="text"
+        inputmode="numeric"
+        [formField]="signupForm.age"
+        (keydown)="onAgeKeydown($event)"
+      />
+
+    </label>
+    @if (signupForm.age().touched() && signupForm.age().invalid()) {
+      <ul>
+        @for (error of signupForm.age().errors(); track error.kind) {
+          <li>{{ error.message }}</li>
+        }
+      </ul>
+    }
+  
+    <button type="submit" [disabled]="signupForm().invalid()">Sign Up</button>
+  </form>
+
+  <pre>{{ model() | json }}</pre>
 </div>

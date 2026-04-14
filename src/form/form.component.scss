@@ -10,14 +10,16 @@ h2 {
   margin-top: 0;
 }
 
-.field {
-  margin-bottom: 1.5rem;
-}
-
 label {
-  display: block;
-  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 500;
+
+  &:last-of-type input {
+    width: 8em;
+  }
 }
 
 input {
@@ -32,66 +34,6 @@ input {
 
 input.ng-invalid.ng-touched {
   border-color: #e74c3c;
-}
-
-.error-message,
-ul,
-ol {
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-}
-
-.error-message {
-  color: #e74c3c;
-}
-
-ul {
-  padding-inline-start: 1.125em;
-}
-
-ol {
-  padding-inline-start: 0;
-  counter-reset: password-rule;
-}
-
-ol li {
-  color: rgba(white, 0.4);
-  transition: color 0.3s ease-in;
-}
-
-ol li {
-  counter-increment: password-rule;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.35em;
-  list-style: none;
-  line-height: 1.4;
-}
-
-ol:not(.error-message) li::before {
-  flex: 0 0 1.25em;
-  text-align: end;
-  content: counter(password-rule) ".";
-  line-height: 1.4;
-}
-
-input.ng-invalid.ng-touched + ol li {
-  color: #e74c3c;
-}
-
-ol.dirty li.valid {
-  color: chartreuse !important;
-
-  &::before {
-    content: "✓";
-    color: currentColor;
-  }
-}
-
-.info {
-  color: orange;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
 }
 
 button {
@@ -110,17 +52,16 @@ button:disabled {
   opacity: 0.5;
 }
 
-div:has(pre) {
-  opacity: 0.4;
-
-  strong {
-    font-size: 0.75em;
-    display: block;
-    margin: -1.25rem 0 0;
-    text-align: center;
-  }
+ul {
+  font-size: 0.875rem;
+  color: #e74c3c;
+  margin-block: -0.75em 1.125em;
+  padding-inline-start: 1.125em;
 }
 
 pre {
-  margin: 1em 0 0;
+  background-color: #1e293b;
+  border-radius: 4px;
+  margin: 1.75em 0 0;
+  padding: 0.75em;
 }

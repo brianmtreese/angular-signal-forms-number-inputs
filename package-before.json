@@ -1,0 +1,23 @@
+{
+  "name": "angular-signal-forms-number-inputs",
+  "private": true,
+  "scripts": {
+    "start": "ng serve --no-hmr",
+    "build": "ng build"
+  },
+  "dependencies": {
+    "@angular/common": "21.2.8",
+    "@angular/compiler": "21.2.8",
+    "@angular/core": "21.2.8",
+    "@angular/forms": "21.2.8",
+    "@angular/platform-browser": "21.2.8",
+    "@angular/platform-browser-dynamic": "21.2.8",
+    "baseline-browser-mapping": "^2.10.18",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@angular/build": "21.2.7",
+    "@angular/cli": "21.2.7",
+    "typescript": "~5.9.3"
+  }
+}
