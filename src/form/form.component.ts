@@ -38,7 +38,7 @@ export class FormComponent {
   });
 
   // 2.
-  onAgeKeydown(event: KeyboardEvent): void {
+  protected onAgeKeydown(event: KeyboardEvent): void {
     const allowedKeys = [
       'Backspace', 'Delete', 'Tab', 'Escape', 'Enter',
       'ArrowLeft', 'ArrowRight',
