@@ -32,5 +32,5 @@ Previously, this didn't work cleanly with Signal Forms because a `number | null`
 
 ## Related
 
-- [Watch the tutorial on YouTube]()
+- [Watch the tutorial on YouTube](https://youtu.be/oHC9CiZTnFk)
 - [Signal Forms full course](https://www.udemy.com/course/angular-signal-forms/?couponCode=021409EC66FC6440B867)
